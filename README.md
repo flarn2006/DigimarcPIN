@@ -1,4 +1,6 @@
-DigimarcPIN
+Digimarc PIN Generator
 ===========
 
-Digimarc for Images PIN recovery tool
+You may be familiar with Digimarc for Images. It's a tool for watermarking photos to prove you own the copyright, in a way that doesn't ruin the photo like a traditional watermark. When you try to embed a watermark, you must enter your six-digit Digimarc ID, which identifies a specific copyright owner who registered with Digimarc, as well as a two-digit PIN. Without the PIN, Digimarc won't apply the watermark. However, as the correct PIN is calculated locally, I was able to figure out how it was generated, and create this tool which will help if you ever lose your PIN. Just enter your Digimarc ID, and it will instantly tell you your PIN.
+
+Please note that while this program works in a similar manner to a "keygen", this tool cannot be used for pirating Digimarc's software for one simple reason: the watermark does not encode any identifying information other than a Digimarc ID, which can only identify a copyright holder when looked up on Digimarc's website. Therefore, while it would be possible to generate a PIN for an ID you do not own, there would be little if any reason to do so, as it wouldn't prove you own the copyright without your information on Digimarc's server. If anything, you'd be labeling it as copyrighted by someone else!
