@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +12,10 @@ namespace DigimarcPIN
 {
     public partial class MainForm : Form
     {
-        private int[] key = { 0x1F, 0x05, 0x35, 0x07, 0x2B, 0x2F, 0x0D, 0x02, 0x25, 0x13, 0x03, 0x17, 0x11, 0x29 };
+        private int[] key = { 0x1F, 0x05, 0x35, 0x07, 0x2B, 0x2F };
+        // For some reason there's 8 more bytes in the key, after the 6 above.
+        // If anyone has seen an ID with more than 6 digits, please let me know!
+        // Complete key: 1F 05 35 07 2B 2F 0D 02 25 13 03 17 11 29
 
         public MainForm()
         {
@@ -24,9 +27,9 @@ namespace DigimarcPIN
             if (idBox.Text.Length == 6) {
                 byte[] stringBytes = Encoding.ASCII.GetBytes(idBox.Text);
                 int n = 0;
-                for (int i = 0; i < idBox.Text.Length; i++) {
+                for (int i = 0; i < 6; i++) {
                     byte digit = (byte)(stringBytes[i] - 0x30);
-                    n += digit * key[idBox.Text.Length - 1 - i];
+                    n += digit * key[5 - i];
                 }
                 n = n % 89 + 10;
                 pinBox.Text = n.ToString();
